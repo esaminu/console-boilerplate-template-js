@@ -15,11 +15,11 @@ jobs:
 
       - name: Install 🔧
         run: |
-          yarn install --frozen-lockfile
+          npm install --frozen-lockfile
       
       - name: Build Contract 🔧
         run: |
-          yarn build:contract
+          npm run build:contract
 
       - name: Upload File
         id: upload
@@ -32,7 +32,7 @@ jobs:
             
       - name: Build Frontend 🔧
         run: |
-          yarn build:web
+          npm run build:web
         env:
           CONTRACT_NAME: "${{ fromJson(steps.upload.outputs.output).data.ContractDeployment[0].contractDeployConfig.nearAccountId }}"
 
