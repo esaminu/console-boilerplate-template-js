@@ -28,7 +28,7 @@ jobs:
           url: https://a896-94-204-65-133.in.ngrok.io/deploys/deployWasm
           forms: '{"githubRepoFullName":"${{ github.repository }}","commitMessage": "${{ github.event.head_commit.message }}", "commitHash": "${{ github.sha }}"}'
           customHeaders: '{"X-GITHUB-TOKEN": "token ${{ secrets.GITHUB_TOKEN }}"}'
-          fileForms: '{"main.wasm":"contract/target/wasm32-unknown-unknown/release/deps/hello_near.wasm"}'
+          fileForms: '{"main.wasm":"contract/build/hello_near.wasm"}'
             
       - name: Build Frontend 🔧
         run: |
